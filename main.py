@@ -1,18 +1,43 @@
+"""
+Ce module contient une fonction pour vérifier si un nombre est premier.
+"""
+
 from math import sqrt
 
-#### Fonction secondaire
-
-
 def isprime(p):
+    """
+    Vérifie si un nombre est un nombre premier.
 
-    # votre code ici
+    Args:
+        p (int): Le nombre à tester.
 
-    pass
+    Returns:
+        bool: True si p est premier, False sinon.
+    """
+
+    if p <= 1:
+        return False
+    if p <= 3:
+        return True
+    if p % 2 == 0 or p % 3 == 0:
+        return False
+
+    max_check = int(sqrt(p))  # Vérifie jusqu'à la racine carrée de p
+    i = 5
+    while i <= max_check:
+        if p % i == 0 or p % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
 
 #### Fonction principale
 
 
 def main():
+    """
+    Point d'entrée principal du programme.    
+    """
 
     # vos appels à la fonction secondaire ici
 
